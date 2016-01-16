@@ -4,11 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-    @datafiles = DataFile.all
+    @orders = Order.all
   end
 
   def upload
-    csv_file_path = params['file']
-    DataFile.import(csv_file_path)
+    DataFile.import(params['file'])
   end
 end

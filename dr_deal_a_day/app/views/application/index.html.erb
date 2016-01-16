@@ -1,3 +1,33 @@
+<h1>Current orders:</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Merchant Name</th>
+      <th>Merchant Address</th>
+      <th>Item Name</th>
+      <th>Item Price</th>
+      <th>Purchaser</th>
+      <th>Quantity</th>
+      <th>Total Order</th>
+    </tr>
+  </thead>
+  <% @orders.each do |order| %>
+    <tbody>
+      <tr>
+        <td>blah</td>
+        <td><%= order.merchant.name %></td>
+        <td><%= order.merchant.address %></td>
+        <td><%= order.item.name %></td>
+        <td><%= number_to_currency(order.item.price) %></td>
+        <td><%= order.purchaser.name %></td>
+        <td><%= order.quantity %></td>
+        <td><%= number_to_currency(order.item.price * order.quantity) %>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+
 <h2>Import Merchent Data</h2>
 
 <%= form_tag '/upload', multipart: true do %>
