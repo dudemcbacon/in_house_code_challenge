@@ -16,7 +16,4 @@ class DataFile < ActiveRecord::Base
     orders
   end
 
-  def self.total_revenue
-    Order.all.inject(0) { |sum, o| sum + (o.quantity * o.item.price) }
-  end
 end
