@@ -50,3 +50,14 @@ group :development do
   gem 'pry'
 end
 
+# Asset Gems
+
+gem 'font-awesome-rails', '~> 4.5'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap', '~> 3.3'
+  gem 'rails-assets-datatables', '~> 1.10'
+  gem 'rails-assets-datatables-plugins', '~> 1.10'
+  gem 'rails-assets-mouse0270--bootstrap-notify', '~> 3.1'
+end
+

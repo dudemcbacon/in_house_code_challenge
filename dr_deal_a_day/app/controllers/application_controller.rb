@@ -8,6 +8,16 @@ class ApplicationController < ActionController::Base
   end
 
   def upload
-    DataFile.import(params['file'])
+    if params['file'].nil?
+      flash[:alert] = 'Please select a file to upload'
+    else
+      DataFile.import(params['file'])
+    end
+
+    total_revenue = view_context.number_to_currency(DataFile.total_revenue)
+
+    flash[:notice] = "Added XX orders totaling $XX.XX dollars. Total revenue is #{total_revenue}"
+
+    redirect_to '/'
   end
 end

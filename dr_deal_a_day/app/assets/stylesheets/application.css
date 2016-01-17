@@ -12,4 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
+ *= require bootstrap
+ *= require datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.scss
  */

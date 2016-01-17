@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
+//= require datatables/jquery.dataTables.js
+//= require datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js
+//= require remarkable-bootstrap-notify
 //= require_tree .
