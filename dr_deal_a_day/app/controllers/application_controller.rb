@@ -8,17 +8,23 @@ class ApplicationController < ActionController::Base
   end
 
   def upload
-    if params['file'].nil?
-      flash[:alert] = 'Please select a file to upload'
-    else
-      orders = DataFile.import(params['file'])
+    begin
+      if params['file'].nil?
+        flash[:alert] = 'Please select a file to upload'
+      else
+        orders = DataFile.import(params['file'])
 
-      # Format Revenue Sums
-      raw_import_revenue = orders.inject(0) { |sum, o| sum + o.order_revenue }
-      import_revenue = view_context.number_to_currency(raw_import_revenue)
-      total_revenue = view_context.number_to_currency(Order.total_revenue)
+        # Format Revenue Sums
+        raw_import_revenue = orders.inject(0) { |sum, o| sum + o.order_revenue }
+        import_revenue = view_context.number_to_currency(raw_import_revenue)
+        total_revenue = view_context.number_to_currency(Order.total_revenue)
 
-      flash[:notice] = "Added #{orders.count} order(s) totaling #{import_revenue} dollars. Total revenue is now #{total_revenue}"
+        flash[:notice] = "Added #{orders.count} order(s) totaling #{import_revenue} dollars. Total revenue is now #{total_revenue}"
+      end
+    rescue DuplicateError => e
+      flash[:alert] = e.message
+    rescue UnsupportedFileType => e
+      flash[:alert] = e.message
     end
 
 
