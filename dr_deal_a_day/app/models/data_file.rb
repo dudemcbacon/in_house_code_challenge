@@ -1,6 +1,10 @@
 class DataFile < ActiveRecord::Base
   has_many :orders
 
+  validates :file_name, presence: true, uniqueness: true
+  validates :file_contents, presence: true, uniqueness: true
+  validates_associated :orders
+
   def self.import(file)
     require 'csv'
 

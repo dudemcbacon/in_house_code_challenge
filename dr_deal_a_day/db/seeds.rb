@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+DataFile.create(file_name: 'testfile', file_contents: 'testcontent')
+Merchant.create(name: 'Brandon Burnett', address: '4140 SE Washington St')
+Item.create(name: '$10 of test item for $5', price: 5.00)
+Purchaser.create(name: 'Kelila Eichstadt')
+Order.create(data_file_id: 1, merchant_id: 1, item_id: 1, purchaser_id: 1, quantity: 1)
+Order.create(data_file_id: 1, merchant_id: 1, item_id: 1, purchaser_id: 1, quantity: 2)
