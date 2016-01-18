@@ -18,3 +18,6 @@
 //= require datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js
 //= require remarkable-bootstrap-notify
 //= require_tree .
+$(document).ready(function() {
+	$('#orders').DataTable();
+})

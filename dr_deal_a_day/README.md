@@ -39,5 +39,5 @@ Attempting to upload an unsupported filetype, a file with missing or invalid dat
 Tests can be run with the following command:
 
 ```
-bin/rake spec
+bin/rake test
 ```
