@@ -32,7 +32,7 @@
 
 
   <% if user_signed_in? %>
-    <%= form_tag '/upload', multipart: true, class: 'form-inline' do %>
+    <%= form_tag '/upload', multipart: true, class: 'form-inline', id: 'upload_form' do %>
       <div class="form-group">
         <label for="datafileInputer">Import Merchent Data</label>
         <%= file_field_tag :file, class: 'form-control', id: 'datafileInput' %>

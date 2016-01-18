@@ -9,9 +9,9 @@ class DataFile < ActiveRecord::Base
     require 'csv'
 
     # Determine FileType
-    if file.headers.match("Content-Type: text/csv")
+    if file.content_type == 'text/csv'
       col_sep = ','
-    elsif file.headers.match("Content-Type: text/tab-separated-values")
+    elsif file.content_type == 'text/tab-separated-values'
       col_sep = "\t"
     else
       raise UnsupportedFileType, "Unsupported file type"

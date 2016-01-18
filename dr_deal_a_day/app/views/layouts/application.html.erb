@@ -27,7 +27,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <li class="dropdown active">
+            <li id="user_dropdown" class="dropdown active">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Profile Thing</a></li>
@@ -38,7 +38,7 @@
               </ul>
             </li>
           <% else %>
-            <li class="active"><%= link_to('Login', new_user_session_path)  %></li>
+            <li id="user_dropdown" class="active"><%= link_to('Login', new_user_session_path)  %></li>
           <% end %>
 				</ul>
 			</div><!-- /.navbar-collapse -->
