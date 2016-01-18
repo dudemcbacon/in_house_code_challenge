@@ -31,11 +31,15 @@
   </table>
 
 
-  <%= form_tag '/upload', multipart: true, class: 'form-inline' do %>
-    <div class="form-group">
-      <label for="datafileInputer">Import Merchent Data</label>
-      <%= file_field_tag :file, class: 'form-control', id: 'datafileInput' %>
-    </div>
-    <%= submit_tag "Import", class: 'btn btn-default' %>
+  <% if user_signed_in? %>
+    <%= form_tag '/upload', multipart: true, class: 'form-inline' do %>
+      <div class="form-group">
+        <label for="datafileInputer">Import Merchent Data</label>
+        <%= file_field_tag :file, class: 'form-control', id: 'datafileInput' %>
+      </div>
+      <%= submit_tag "Import", class: 'btn btn-default' %>
+    <% end %>
+  <% else %>
+    <small>* Only logged in users can import orders.</small>
   <% end %>
 </div>
